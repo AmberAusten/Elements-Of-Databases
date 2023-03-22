@@ -1,0 +1,18 @@
+The two datasets we chose are the IMDB and the Bollywood datasets.
+
+URLS:
+IMDB: https://datasets.imdbws.com/
+BollyWood: https://www.kaggle.com/alokdas527/bollywood-movies-analysis?select=bollywood-actress.csv
+
+Interesting entities and attributes noticed:
+In the Bollywood dataset, the 'debut_aslead_role attribute' for the actress table seemed interesting as the actors table does not have that field.
+In the Bollywood dataset, the 'Height(in cm)' attribute is also an interesting field as it conveys that there is a preferred height for actors and actresses.
+In the IMDB dataset we are interested in the primary profession field for the name basic table, becasue it goes over the top three professions of a person. 
+
+Insights we hope to gain: 
+We hope to pull together insights on how movies perform with female leads or directors, are they highly rated, high grossing movies? We are also interested in learning if the Bollywood movie industry will overtake the Hollywood industry with time, are there trends over time pointing in that direction?
+
+objectives and necessary conversions for implementing
+cross-dataset joins:
+
+We tried joining the bollywood table, from the Bollywood dataset, and the title_basics table, from the IMDB dataset to compare the title_basics startYear and the bollywood.Year columns but the startYear datatype is a string. We will have to convert them into an integer in the future for that to work. Other problems we have had is that we cannot join the bollywood and bolly_wood actors tables with the IMDB dataset tables as the Cast column in bollywood is a string instead of an array of strings. There are other column datatypes that are strings that need to be converted to arrays, from the IMDB dataset. Those that need to be change are the following: primaryProfession, knownForTitles in the name_basics table, directors and writers columns in the title_crew table, genres in the title_basics table, and types as well as attributes columns from the title_akas table.
